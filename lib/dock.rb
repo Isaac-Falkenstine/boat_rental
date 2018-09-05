@@ -21,7 +21,10 @@ class Dock
     dock_hours = 0
     dock_hours += 1
     @rented_boats.each do |boat|
-      @total_rev += boat.price_per_hour
+      boat.add_hour
+      if boat.hours_rented <= self.max_rental_time
+        @total_rev += boat.price_per_hour
+      end
     end
   end
 
