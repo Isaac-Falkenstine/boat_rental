@@ -73,6 +73,9 @@ class DockTest < Minitest::Test
     dock.return(kayak_1)
     dock.return(kayak_2)
     dock.return(canoe)
+
+    assert_equal({"4242424242424242" => 105}, dock.charges)
+
     dock.rent(sup_1, eugene)
     dock.rent(sup_2, eugene)
     dock.log_hour
