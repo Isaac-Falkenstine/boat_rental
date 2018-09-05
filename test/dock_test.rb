@@ -42,6 +42,19 @@ class DockTest < Minitest::Test
     dock.return(canoe)
 
     assert_equal 105, dock.revenue
+
+    dock.rent(sup_1, eugene)
+    dock.rent(sup_2, eugene)
+    dock.log_hour
+    dock.log_hour
+    dock.log_hour
+    # Any hours rented past the max rental time are not counted
+    dock.log_hour
+    dock.log_hour
+    dock.return(sup_1)
+    dock.return(sup_2)
+
+    assert_equal 195, dock.revenue
   end
 
 end
